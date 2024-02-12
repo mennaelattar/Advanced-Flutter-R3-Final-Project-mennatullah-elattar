@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1049439022375",
+    "project_id": "recipes-app-77067",
+    "storage_bucket": "recipes-app-77067.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049439022375:android:1a956295982509b57e0d02",
+        "android_client_info": {
+          "package_name": "com.example.recipe_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ7FlDcjgpaRmWcWES6GisjHqh6fU54n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
