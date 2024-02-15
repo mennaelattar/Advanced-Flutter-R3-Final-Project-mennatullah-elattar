@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_flutter/pages/home/index.home.dart';
-import 'package:recipe_flutter/pages/single_recipe/index.single_recipe.dart';
 import 'package:recipe_flutter/providers/ads.provider.dart';
 import 'package:recipe_flutter/providers/auth.provider.dart';
 import 'package:recipe_flutter/providers/ingredient.provider.dart';
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
           colorScheme: ColorScheme.fromSeed(seedColor: ColorApp.mainColor)),
-      home: SingleRecipe(),
+      home: HomePage(),
       routes: RoutesApp.routes,
     );
   }

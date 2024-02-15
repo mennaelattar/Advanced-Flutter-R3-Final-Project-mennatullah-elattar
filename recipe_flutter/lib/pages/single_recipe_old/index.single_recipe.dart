@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_flutter/providers/ingredient.provider.dart';
@@ -32,8 +33,23 @@ class _SingleRecipeState extends State<SingleRecipe> {
                             ingredientsProviderObj.ingredientList!.length,
                         itemBuilder: (context, index) {
                           ListTile(
+                            leading: Checkbox(
+                              value: ingredientsProviderObj
+                                  .ingredientList![index].user_ids
+                                  ?.contains(
+                                      FirebaseAuth.instance.currentUser?.uid),
+                              onChanged: (value) =>
+                                  ingredientsProviderObj.addIngredientToUser(
+                                      ingredientsProviderObj
+                                          .ingredientList![index].docId!,
+                                      value ?? false),
+                            ),
                             title: Text(
-                                '${ingredientsProviderObj.ingredientList![index].name}'),
+                              ingredientsProviderObj
+                                      .ingredientList![index].name ??
+                                  'No Name',
+                              style: TextStyle(color: Colors.black),
+                            ),
                           );
                         });
           },

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:recipe_flutter/models/ad.model.dart';
 import 'package:recipe_flutter/pages/home/page_sections/ads_section.dart';
 import 'package:recipe_flutter/pages/home/page_sections/today_fresh_recipes_section.dart';
-import 'package:recipe_flutter/services/prefreences.services.dart';
+import 'package:recipe_flutter/pages/single_recipe_old/index.single_recipe.dart';
 import 'package:recipe_flutter/utilities/colors.dart';
 import 'package:recipe_flutter/providers/auth.provider.dart';
 
@@ -48,6 +48,17 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                ListTile(
+                  onTap: () {
+                    zoomDrawerController.close?.call();
+                    Navigator.push(context, MaterialPageRoute(builder: (__) {
+                      return SingleRecipe();
+                    }));
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Single Page"),
+                  minLeadingWidth: 0,
+                ),
                 ListTile(
                   leading: Icon(Icons.home),
                   title: Text("Home"),

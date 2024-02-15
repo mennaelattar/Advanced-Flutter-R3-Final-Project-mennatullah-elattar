@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_flutter/models/recipie.model.dart';
+import 'package:recipe_flutter/pages/single_recipe/index.dart';
 
 class RecipesProvider extends ChangeNotifier {
   List<Recipe>? _recipeList;
@@ -56,5 +57,22 @@ class RecipesProvider extends ChangeNotifier {
       });
     }
     notifyListeners();
+  }
+
+  void getSingleRecipeData(BuildContext context, String recipe_id) async {
+    try {
+      var data = await FirebaseFirestore.instance
+          .collection('recipes')
+          .doc(recipeId)
+          .get();
+      Navigator.push(context, MaterialPageRoute(builder: (__) {
+        return SingleRecipePage(
+          recipeId: recipe_id,
+        );
+      }));
+      notifyListeners();
+    } catch (e) {
+      notifyListeners();
+    }
   }
 }

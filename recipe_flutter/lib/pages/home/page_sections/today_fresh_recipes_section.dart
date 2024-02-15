@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_flutter/pages/single_recipe/index.dart';
 import 'package:recipe_flutter/providers/recipes.provider.dart';
 import 'package:recipe_flutter/utilities/colors.dart';
+
+import '../../../widgets/them_elevated_button.widgets.dart';
 
 class TodayFreshRecipesSection extends StatefulWidget {
   const TodayFreshRecipesSection({super.key});
@@ -42,7 +45,7 @@ class _TodayFreshRecipesSectionState extends State<TodayFreshRecipesSection> {
           : recipesProviderObj.recipeList!.isEmpty
               ? Text("No Data Found")
               : SizedBox(
-                  height: 450,
+                  height: 480,
                   child: ListView.separated(
                     separatorBuilder: (BuildContext context, int index) {
                       return SizedBox(width: 15);
@@ -58,7 +61,7 @@ class _TodayFreshRecipesSectionState extends State<TodayFreshRecipesSection> {
                         color: Color.fromARGB(255, 233, 234, 240),
                         child: SizedBox(
                           width: 250,
-                          height: 100,
+                          height: 200,
                           child: Container(
                               alignment: Alignment.topLeft,
                               padding: EdgeInsets.all(20),
@@ -236,6 +239,19 @@ class _TodayFreshRecipesSectionState extends State<TodayFreshRecipesSection> {
                                           flex: 5,
                                         ),
                                       ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Center(
+                                    child: InkWell(
+                                      onTap: () {
+                                        recipesProviderObj.getSingleRecipeData(
+                                            context,
+                                            "${recipesProviderObj.recipeList![index].docId}");
+                                      },
+                                      child: Text('View More'),
                                     ),
                                   )
                                 ],
